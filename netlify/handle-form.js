@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 const { BUTTONDOWN_API_KEY } = process.env;
 exports.handler = async event => {
-  const { email } = JSON.parse(event.body).payload;
+  const email = event.body;
   console.log(`Recieved an email address: ${email}`);
   try {
     const response = await fetch("https://api.buttondown.email/v1/subscribers", {
@@ -13,9 +13,11 @@ exports.handler = async event => {
       body: JSON.stringify({ email })
     });
 
-    console.log("Response: ", response.json());
-    return response.json();
+    const body = await response.json();
+    console.log("Response: ", body);
+    return { statusCode: 200, body: JSON.stringify(body) };
   } catch (error) {
+    console.log(error);
     return { statusCode: 500, body: JSON.stringify(error) };
   }
 };

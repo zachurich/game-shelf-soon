@@ -124,11 +124,10 @@
     </main>
     <script type="text/javascript">
       const processForm = (form, formMessage, comingSoonWrapper) => {
-        const data = new FormData(form)
-        data.append('form-name', 'newsletter');
+        
         fetch('/.netlify/functions/handle-form', {
           method: 'POST',
-          body: data,
+          body: document.querySelector('input[type="email"]').value,
         })
         .then(() => {
           comingSoonWrapper.innerHTML = `<h3 class="message" style="margin-bottom: 0;">Check your inbox for a confirmation e-mail.</h3>`;
