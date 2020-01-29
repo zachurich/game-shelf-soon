@@ -131,7 +131,7 @@
           body: data,
         })
         .then(() => {
-          form.innerHTML = `<div class="success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
+          comingSoonWrapper.innerHTML = `<h3 class="message" style="margin-bottom: 0;">Check your inbox for a confirmation e-mail.</h3>`;
         })
         .catch(error => {
           comingSoonWrapper.classList.toggle("error")
