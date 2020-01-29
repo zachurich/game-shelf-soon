@@ -126,7 +126,7 @@
       const processForm = (form, formMessage, comingSoonWrapper) => {
         const data = new FormData(form)
         data.append('form-name', 'newsletter');
-        fetch('/', {
+        fetch('/.netlify/functions/handle-form', {
           method: 'POST',
           body: data,
         })
