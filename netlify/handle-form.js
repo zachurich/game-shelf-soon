@@ -1,4 +1,3 @@
-require("dotenv").config();
 const fetch = require("node-fetch");
 const { BUTTONDOWN_API_KEY } = process.env;
 exports.handler = async event => {
