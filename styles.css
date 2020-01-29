@@ -1,0 +1,219 @@
+:root {
+  --main-background: #f5f5f2;
+  --text-dark: #282822;
+  --subtle-border: #e2e2e2;
+  --main-font: "Nunito", sans-serif;
+  --main-blue: #017bfd;
+  --main-green: #70c045;
+  --main-yellow: #ffdf00;
+  --main-pink: #ef125a;
+  --main-pink-dark: #c61d54;
+  --main-blue-hover: #016bdc;
+  --white-hover: #e1e1e1;
+  --solid-drop-shadow: rgba(0, 0, 0, 0.25);
+  --gray-drop-shadow-hover: #c7c7c7;
+  --blue-drop-shadow-hover: #005cbe;
+  --weight-black: 800;
+  --weight-bold: 700;
+  --default-spacing: 20px;
+  --main-transition: cubic-bezier(0.59, 0.01, 0, 0.99);
+
+  --root-font-size: 14px;
+}
+
+html,
+body {
+  font-size: var(--root-font-size);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-background);
+  font-family: "Nunito", sans-serif;
+}
+
+header {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  padding: 100px 50px 0;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.logo a {
+  display: flex;
+}
+
+.logo-cartridge-art {
+  transition: all 0.2s var(--main-transition);
+}
+
+.logo a:hover .logo-cartridge .logo-cartridge-art {
+  fill: var(--main-blue);
+}
+
+main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  position: relative;
+  font-weight: var(--weight-black);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+h1 span {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
+
+h1 span::after {
+  left: 0;
+  bottom: -12px;
+  content: " ";
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 9px;
+  background: var(--subtle-border);
+  animation: grow-horizontal 0.3s var(--main-transition) forwards;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: var(--weight-bold);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.coming-soon {
+  text-align: center;
+  margin-top: 80px;
+  background-color: var(--main-blue);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 0px var(--blue-drop-shadow-hover);
+  margin-bottom: 50px;
+}
+
+.coming-soon h3 {
+  color: white;
+  margin-top: 0;
+}
+
+.coming-soon.error {
+  background-color: var(--main-pink);
+  box-shadow: 0px 8px 0px var(--main-pink-dark);
+}
+
+@import "./util.scss";
+
+form,
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-weight: var(--weight-bold);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+label {
+  font-family: var(--main-font);
+  margin-bottom: 10px;
+}
+
+input[type="email"] {
+  flex-basis: 100%;
+  border-radius: 5px;
+  outline: none;
+  appearance: none;
+  font-weight: var(--weight-bold);
+  box-sizing: border-box;
+  padding: 15px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+input[type="email"]:hover {
+  background-color: var(--subtle-border);
+}
+
+input[type="email"]:focus {
+  background-color: white;
+}
+
+.button {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  font-weight: var(--weight-bold);
+  padding: 0 20px;
+  height: 48px;
+  border-radius: 5px;
+  transition: 0.05s var(--main-transition);
+  box-shadow: 0px 4px 0px var(--solid-drop-shadow);
+  background-color: white;
+}
+
+.button:hover {
+  background-color: #ebebeb;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 0px var(--solid-drop-shadow);
+  cursor: pointer;
+  color: initial;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (min-width: 400px) {
+  :root {
+    --root-font-size: 16px;
+  }
+  input[type="email"] {
+    flex-basis: 60%;
+    margin-right: 10px;
+    margin-bottom: 0px;
+  }
+}
+
+/* Animations */
+@keyframes grow-horizontal {
+  0% {
+    opacity: 0.5;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
