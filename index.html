@@ -124,6 +124,7 @@
     </main>
     <script type="text/javascript">
       const processForm = (form, formMessage, comingSoonWrapper) => {
+        const originalText = formMessage.innerText
         formMessage.innerText = "Submitting...";
         fetch('/.netlify/functions/handle-form', {
           method: 'POST',
@@ -144,6 +145,8 @@
             formMessage.innerText = normalText
           }, 5000)
         })
+
+        formMessage.innerText = originalText
       }
 
 
