@@ -144,11 +144,9 @@
           formMessage.innerText = `There was an error signing up! Try again later.`;
           setTimeout(() => {
             comingSoonWrapper.classList.toggle("error")
-            formMessage.innerText = normalText
+            formMessage.innerText = originalText
           }, 5000)
         })
-
-        formMessage.innerText = originalText
       }
 
 
