@@ -179,6 +179,7 @@ input[type="email"]:focus {
   transition: 0.05s var(--main-transition);
   box-shadow: 0px 4px 0px var(--solid-drop-shadow);
   background-color: white;
+  border: none;
 }
 
 .button:hover {
