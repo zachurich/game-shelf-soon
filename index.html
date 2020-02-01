@@ -124,7 +124,7 @@
     </main>
     <script type="text/javascript">
       const processForm = (form, formMessage, comingSoonWrapper) => {
-        
+        formMessage.innerText = "Submitting...";
         fetch('/.netlify/functions/handle-form', {
           method: 'POST',
           body: document.querySelector('input[type="email"]').value,

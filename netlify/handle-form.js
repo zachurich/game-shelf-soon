@@ -1,5 +1,8 @@
 const fetch = require("node-fetch");
 const { BUTTONDOWN_API_KEY } = process.env;
+
+const VALID_CODES = new Set([200, 201]);
+
 exports.handler = async event => {
   const email = event.body;
   console.log(`Recieved an email address: ${email}`);
@@ -14,9 +17,10 @@ exports.handler = async event => {
     });
 
     const body = await response.json();
-    if (response && response.status === 200) {
+    if (response && VALID_CODES.has(response.status)) {
       return { statusCode: 200, body: JSON.stringify(body) };
     }
+    console.log(response.status);
     console.log("Error: ", body);
     throw Error("There was an error.");
   } catch (error) {
