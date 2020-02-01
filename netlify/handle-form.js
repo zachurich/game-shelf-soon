@@ -14,8 +14,11 @@ exports.handler = async event => {
     });
 
     const body = await response.json();
-    console.log("Response: ", body);
-    return { statusCode: 200, body: JSON.stringify(body) };
+    if (response && response.status === 200) {
+      return { statusCode: 200, body: JSON.stringify(body) };
+    }
+    console.log("Error: ", body);
+    throw Error("There was an error.");
   } catch (error) {
     console.log(error);
     return { statusCode: 500, body: JSON.stringify(error) };
